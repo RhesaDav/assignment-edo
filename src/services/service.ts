@@ -2,55 +2,61 @@ import httpCommon from "../api/httpCommon"
 import LoginInterface from "../models/login";
 import UserInterface from "../models/user";
 
-const registerAdmin = (data: UserInterface) => {
-    return httpCommon.post('/admins/create', data)
+class httpService {
+
+    registerAdmin = (data: UserInterface) => {
+        return httpCommon.post<any>('/admins/create', data)
+    }
+    
+    registerUser = (data:UserInterface) => {
+        return httpCommon.post<any>('/users/create',data)
+    }
+    
+    loginAdmin = (data:LoginInterface) => {
+        return httpCommon.post<any>('/admins/login', data)
+    }
+    
+    loginUser = (data:LoginInterface) => {
+        return httpCommon.post<any>('/login/user', data)
+    }
+    
+    listUser = () => {
+        return httpCommon.get<any>('/users')
+    }
+    
+    listAbsen = () => {
+        return httpCommon.get<any>('/absens')
+    }
+    
+    listJadwal = () => {
+        return httpCommon.get<any>('/jadwals')
+    }
+    
+    addAbsen = (id:any) => {
+        return httpCommon.post<any>('/absen', id)
+    }
+    
+    addJadwal = (data:any) => {
+        return httpCommon.post<any>('/jadwals/create', data)
+    }
+    
+    detailJadwal = (id:any) => {
+        return httpCommon.get<any>('/jadwals/'+id)
+    }
 }
 
-const registerUser = (data:UserInterface) => {
-    return httpCommon.post('/users/create',data)
-}
+export default new httpService()
 
-const loginAdmin = (data:LoginInterface) => {
-    return httpCommon.post('/admins/login', data)
-}
 
-const loginUser = (data:LoginInterface) => {
-    return httpCommon.post('/login/user', data)
-}
-
-const listUser = () => {
-    return httpCommon.get('/users')
-}
-
-const listAbsen = () => {
-    return httpCommon.get('/absens')
-}
-
-const listJadwal = () => {
-    return httpCommon.get('/jadwals')
-}
-
-const addAbsen = (id:any) => {
-    return httpCommon.post('/absen', id)
-}
-
-const addJadwal = (data:any) => {
-    return httpCommon.post('/jadwals/create', data)
-}
-
-const detailJadwal = (id:any) => {
-    return httpCommon.get('/jadwals/'+id)
-}
-
-export const httpService = {
-    registerAdmin,
-    loginAdmin,
-    loginUser,
-    listUser,
-    registerUser,
-    listAbsen,
-    listJadwal,
-    addAbsen,
-    addJadwal,
-    detailJadwal
-}
+// export const httpService = {
+//     registerAdmin,
+//     loginAdmin,
+//     loginUser,
+//     listUser,
+//     registerUser,
+//     listAbsen,
+//     listJadwal,
+//     addAbsen,
+//     addJadwal,
+//     detailJadwal
+// }

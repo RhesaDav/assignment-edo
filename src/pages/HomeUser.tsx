@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import { httpService } from '../services/service'
+import httpService from '../services/service'
 
 interface iUser {
   absen: boolean;

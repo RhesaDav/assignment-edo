@@ -1,6 +1,6 @@
 import React from 'react'
 import AdminLayout from '../layout/AdminLayout'
-import { httpService } from '../services/service'
+import httpService from '../services/service'
 
 const Absen = () => {
   const [data,setData] = React.useState([])

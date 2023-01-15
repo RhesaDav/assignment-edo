@@ -12,10 +12,10 @@ const Navbar = ({isAdmin}: any) => {
   };
 
   return (
-    <div className="bg-red-200 p-2 flex justify-between items-center">
+    <div className="navbar bg-base-200 p-2 flex justify-between items-center">
       <h1>{isAdmin? 'Admin' : 'User'}</h1>
         {isAdmin? (
-      <ul className="flex gap-5 bg-blue-100 p-3">
+      <ul className="flex gap-5 bg-base-100 p-3">
         <li>    
           <Link to={`${isAdmin? '/admin': '/user'}/home`}>Home</Link>
         </li>
