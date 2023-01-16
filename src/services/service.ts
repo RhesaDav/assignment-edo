@@ -13,7 +13,7 @@ class httpService {
     }
     
     loginAdmin = (data:LoginInterface) => {
-        return httpCommon.post<any>('/admins/login', data)
+        return httpCommon.post<any>('/login/admin', data)
     }
     
     loginUser = (data:LoginInterface) => {
